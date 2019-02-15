@@ -14,8 +14,7 @@ import com.bw.ymy.zy1.bean.Home;
 import com.bw.ymy.zy1.presenter.IPresenterlpl;
 import com.bw.ymy.zy1.view.IView;
 
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class MainActivity extends AppCompatActivity implements IView {
 

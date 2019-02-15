@@ -1,12 +1,14 @@
 package com.bw.ymy.zy1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -40,11 +42,21 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
         viewHolder.title.setText(mdata.get(i).getCommodityName());
         Uri uri=Uri.parse(mdata.get(i).getMasterPic());
         viewHolder.icon.setImageURI(uri);
+        viewHolder.line.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(context,Main2Activity.class);
+
+                intent.putExtra("pid",mdata.get(i).getCommodityId()+"");
+                context.startActivity(intent);
+            }
+        });
 
 
     }
@@ -57,10 +69,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     class  ViewHolder extends  RecyclerView.ViewHolder{
         TextView title;
         SimpleDraweeView icon;
+        LinearLayout line;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title=itemView.findViewById(R.id.title);
             icon=itemView.findViewById(R.id.icon);
+            line=itemView.findViewById(R.id.line);
         }
     }
 }
