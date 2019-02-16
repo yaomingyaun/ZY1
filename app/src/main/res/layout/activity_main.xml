@@ -23,9 +23,9 @@
             android:text="搜索"/>
 
     </LinearLayout>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+   <com.jcodecraeer.xrecyclerview.XRecyclerView
+       android:id="@+id/xrecyclerView"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"/>
 
 </LinearLayout>
